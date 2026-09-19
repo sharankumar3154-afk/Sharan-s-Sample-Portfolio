@@ -1,2 +1,29 @@
-import React from 'react';
-export default function Resume(){return <section id="resume" className="section resume"><div><p className="eyebrow">RESUME</p><h2>Experience that connects business and technology.</h2><p>Experience across accounts, sourcing and ERP support, with hands-on work in Odoo customization, reporting and web development.</p></div><div className="timeline"><div><b>2024 — Present</b><h3>WS Industries India Ltd.</h3><p>ERP support · Odoo · Reports · Purchase & Accounts workflows</p></div><div><b>2023 — 2024</b><h3>Business & Admin Roles</h3><p>Customer-facing operations, administration and process support.</p></div></div></section>}
+function Resume() {
+  return (
+    <section id="resume" className="section resume">
+      <div>
+        <p className="eyebrow">RESUME</p>
+        <h2>Experience that connects business and technology.</h2>
+        <p>
+          Experience across accounts, sourcing and ERP support, with hands-on work
+          in Odoo customization, reporting and web development.
+        </p>
+      </div>
+
+      <div className="timeline">
+        <div>
+          <b>2024 — Present</b>
+          <h3>WS Industries India Ltd.</h3>
+          <p>ERP support · Odoo · Reports · Purchase & Accounts workflows</p>
+        </div>
+        <div>
+          <b>2023 — 2024</b>
+          <h3>Business & Admin Roles</h3>
+          <p>Customer-facing operations, administration and process support.</p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export default Resume;
