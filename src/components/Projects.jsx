@@ -1,0 +1,3 @@
+import React from 'react';
+const data=[['Finance Compliance Tracker','Flask • MySQL • HTML/CSS','/images/finance.svg'],['ShopKart','React • API • Router • LocalStorage','/images/shop.svg'],['Odoo College ERP','Odoo • Python • XML','/images/erp.svg']];
+export default function Projects(){return <section id="projects" className="section"><p className="eyebrow">PROJECTS</p><h2>Selected work</h2><div className="project-grid">{data.map(([title,tech,img])=><article className="project" key={title}><img src={img} loading="lazy" alt=""/><div><h3>{title}</h3><p>{tech}</p><a href="#contact">View details →</a></div></article>)}</div></section>}

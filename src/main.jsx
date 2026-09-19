@@ -1,0 +1,14 @@
+import React, { Suspense, lazy, useState } from 'react';
+import { createRoot } from 'react-dom/client';
+import './styles.css';
+
+const Projects = lazy(() => import('./components/Projects.jsx'));
+const Resume = lazy(() => import('./components/Resume.jsx'));
+const Contact = lazy(() => import('./components/Contact.jsx'));
+
+function About(){return <section id="about" className="section about"><div><p className="eyebrow">ABOUT ME</p><h2>Building useful products with clean, practical code.</h2><p>I’m a React and Python-focused developer who enjoys turning business requirements into responsive, user-friendly applications. I care about maintainable components, performance and a polished user experience.</p><div className="stats"><div><strong>3+</strong><span>Projects</span></div><div><strong>2+</strong><span>Years Experience</span></div><div><strong>10+</strong><span>Core Skills</span></div></div></div><div className="about-card"><div className="avatar">SK</div><h3>React Developer</h3><p>Frontend • Python • Odoo • SQL</p><span className="availability">● Available for opportunities</span></div></section>}
+function Skills(){const skills=['React','JavaScript','HTML5','CSS3','Bootstrap','Python','Flask','Odoo','SQL','Git & GitHub','Power BI','Responsive Design'];return <section id="skills" className="section"><p className="eyebrow">SKILLS</p><h2>Tools I work with</h2><div className="skill-grid">{skills.map(s=><span key={s}>{s}</span>)}</div></section>}
+function Header({open,setOpen}){return <header><a className="brand" href="#home">SK<span>.</span></a><button className="menu" onClick={()=>setOpen(!open)} aria-label="Toggle navigation">☰</button><nav className={open?'open':''}>{['about','projects','skills','resume','contact'].map(x=><a key={x} href={'#'+x} onClick={()=>setOpen(false)}>{x[0].toUpperCase()+x.slice(1)}</a>)}</nav></header>}
+function App(){const [open,setOpen]=useState(false); return <><Header open={open} setOpen={setOpen}/><main><section id="home" className="hero"><div className="hero-copy"><p className="eyebrow">HELLO, I'M</p><h1>Sharan <span>Kumar</span></h1><h2>React Developer & Python Enthusiast</h2><p>Creating responsive interfaces and business applications with modern web technologies.</p><div className="actions"><a className="btn primary" href="#projects">View Projects</a><a className="btn ghost" href="#contact">Contact Me</a></div></div><div className="hero-code"><div className="window"><div className="dots">● ● ●</div><pre>{`const developer = {\n  name: "Sharan",\n  stack: ["React", "Python"],\n  focus: "Performance",\n  mindset: "Keep learning"\n};`}</pre></div></div></section><About/><Suspense fallback={<div className="loading">Loading portfolio sections…</div>}><Projects/><Resume/><Contact/></Suspense><Skills/></main><footer>© 2026 Sharan Kumar · Built with React + Vite</footer></>}
+
+createRoot(document.getElementById('root')).render(<App/>);
